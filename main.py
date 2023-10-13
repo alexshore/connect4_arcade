@@ -1,4 +1,5 @@
 import arcade
+import arcade.color
 
 
 SCREEN_SIZE = 720
