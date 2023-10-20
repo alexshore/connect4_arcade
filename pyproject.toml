@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "connect4-arcade"
+version = "0.1.0"
+description = ""
+authors = ["Alex Shore <alex@shore.me.uk>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+arcade = "^2.6.17"
+numpy = "^1.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
