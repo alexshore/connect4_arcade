@@ -118,7 +118,11 @@ class Game:
         return False
 
     def is_won(self) -> bool:
-        return self.is_won_horizontally() or self.is_won_vertically() or self.is_won_diagonally()
+        return (
+            self.is_won_horizontally()
+            or self.is_won_vertically()
+            or self.is_won_diagonally()
+        )
 
     def is_valid_move(self, column: int) -> bool:
         # checks for at least 1 cell with a Checker.NONE in it
@@ -186,12 +190,16 @@ class Connect4(arcade.Window):
         return self.mouse_x // CELL_SIZE, self.mouse_y // CELL_SIZE
 
     def get_centre_of_cell(self, cell: tuple[int, int]) -> tuple[int, int]:
-        return (cell[0] * CELL_SIZE) + (CELL_SIZE // 2), (cell[1] * CELL_SIZE) + (CELL_SIZE // 2)
+        return (cell[0] * CELL_SIZE) + (CELL_SIZE // 2), (cell[1] * CELL_SIZE) + (
+            CELL_SIZE // 2
+        )
 
     def is_mouse_inside_checker(self, center_x: int, center_y: int) -> bool:
         # check if distance from center of circle to mouse (using pythag) is less than radius
         # https://math.stackexchange.com/questions/198764/how-to-know-if-a-point-is-inside-a-circle
-        return (self.mouse_x - center_x) ** 2 + (self.mouse_y - center_y) ** 2 <= CHECKER_RADIUS**2
+        return (self.mouse_x - center_x) ** 2 + (
+            self.mouse_y - center_y
+        ) ** 2 <= CHECKER_RADIUS**2
 
     def draw_checker(self, cell: tuple[int, int]) -> None:
         center_x, center_y = self.get_centre_of_cell(cell)
